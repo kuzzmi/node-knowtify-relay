@@ -3,7 +3,7 @@ A Node.js wrapper for Knowtify Relay API
 
 ## Usage:
 
-```
+```javascript
 const Relay = require('knowtify-relay-api');
 
 Relay.setup({
