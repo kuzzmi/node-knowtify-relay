@@ -21,20 +21,16 @@ module.exports.setup = ({ url, token }) => {
 
 };
 
-module.exports.createEvent = ({ url, token, event }) => {
+module.exports.createEvent = event => {
 
-    // Using provided params or those set with KnowifyRelayApi#setup()
-    const apiUrl   = url   || _url;
-    const apiToken = token || _token;
-
-    invariant(event, `[${NAME}] apiUrl property must be defined`);
-    invariant(token, `[${NAME}] token property must be defined`);
+    invariant(_url,   `[${NAME}] Seems like setup step was skipped`);
+    invariant(_token, `[${NAME}] Seems like setup step was skipped`);
 
     // Merge event data with token on the first level
-    const body = merge(event, { token: apiToken });
+    const body = merge(event, { token: _token });
 
     // Finally make a POST request to the resource
-    return got(url || `${apiUrl}/api/v1/event`, {
+    return got(`${_url}/api/v1/event`, {
         method: 'POST',
         body,
         json: true
