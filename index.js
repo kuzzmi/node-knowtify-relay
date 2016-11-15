@@ -33,10 +33,12 @@ module.exports.createEvent = ({ url, token, event }) => {
     // Merge event data with token on the first level
     const body = merge(event, { token: apiToken });
 
+    // Finally make a POST request to the resource
     return got(url || `${apiUrl}/api/v1/event`, {
         method: 'POST',
         body,
         json: true
     });
+
 };
 
