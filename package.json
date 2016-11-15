@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/kuzzmi/node-knowtify-relay#readme",
   "dependencies": {
-    "got": "^6.6.3"
+    "got": "^6.6.3",
+    "lodash.merge": "^4.6.0"
   }
 }
